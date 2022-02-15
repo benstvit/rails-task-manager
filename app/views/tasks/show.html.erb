@@ -1,0 +1,21 @@
+
+<div class="container">
+  <i class="fa-solid fa-badge-check"></i>
+
+  <h1><%= @task.title %></h1>
+  <h2><%= @task.details %></h2>
+  <p>Status:</p>
+  <% if @task.completed%>
+  <i class="fa-solid fa-badge-check"></i>
+  <% else %>
+  <i class="fa-solid fa-badge"></i>
+  <%end %>
+</div>
+
+
+<%= link_to 'Go back to task index', tasks_path %>
+<%= link_to 'Edit the task', edit_task_path %>
+<%= link_to "Delete #{@task.title}",
+            task_path(@task),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
